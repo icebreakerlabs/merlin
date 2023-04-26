@@ -21,7 +21,7 @@ export function getTestnetSlug() {
     case 'Mainnet':
       return 'mainnet';
     case 'Polygon':
-      return 'polygon';
+      return 'matic';
     case 'Fantom':
       return 'fantom';
     case 'Avalanche':

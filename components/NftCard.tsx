@@ -61,7 +61,7 @@ export default memo(function NftCard({ tokenId, nft, address }: NftCardProps) {
             <SkeletonText noOfLines={1} isLoaded={isLoaded}>
               {nft?.metadata?.attributes ? (
                 <Badge variant="outline" fontSize="16px">
-                  Artist: {(nft.metadata.attributes as NftAttributes)[5].value}
+                  Farcaster: {(nft.metadata.attributes as NftAttributes)[1].value}
                 </Badge>
               ) : null}
             </SkeletonText>
