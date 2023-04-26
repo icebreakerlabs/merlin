@@ -1,0 +1,39 @@
+{
+  "name": "goerli-2-24-23-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "resolutions": {
+    "ethereumjs-abi": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@thirdweb-dev/react": "^3.9.5",
+    "@thirdweb-dev/sdk": "^3.9.5",
+    "@typeform/embed-react": "^2.16.0",
+    "@zxing/browser": "^0.1.1",
+    "@zxing/library": "^0.19.2",
+    "ethers": "^5.7.2",
+    "framer-motion": "^10.0.0",
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "@types/react": "^17.0.45",
+    "eslint": "^8.16.0",
+    "eslint-config-next": "^12.1.6",
+    "prettier": "^2.8.7",
+    "typescript": "~4.7.2"
+  }
+}
