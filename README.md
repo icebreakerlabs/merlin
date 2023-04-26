@@ -6,95 +6,77 @@
   </a>
 </div>
 
+## Contents
+1. [About](#about)
+2. [Overview](#overview)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Roadmap](#roadmap)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Contact](#contact)
+
+
 ## About
 
-Created by Icebreaker for ETHDenver 2023. Sharing the source code for other builders to easily launch simple NFT drops in a mobile-minting friendly dapp format.
+Deploy your own NFT drop and gasless minting website in an easy-to-use, mobile friendly format without writing a single line of code. 
 
-Note that the current linked contract only allows minting from a single allowlisted address. See installation section for details.
+Requires a [Vercel][Vercel-url] account and some basic setup with [Thirdweb][Thirdweb-url] and [Typeform][Typeform-url].
+
+Created by [Icebreaker](https://icebreaker.xyz). 
 
 ### Built With
 
 [![Next][Next.js]][next-url]
 [![React][React.js]][react-url]
 [![ChakraUI][ChakraUI-logo]][ChakraUI-url]
-[![ThirdWeb][ThirdWeb-logo]][thirdweb-url]
+[![ThirdWeb][ThirdWeb-logo]][Thirdweb-url]
 [![Vercel][Vercel-logo]][Vercel-url]
 [![Typeform][Typeform-logo]][Typeform-url]
 
-## Getting Started
+## Overview
 
-To get a local copy up and running follow these simple steps.
+Simply fork this repository, deploy your contract using thirdweb, and deploy the repo with the correct environment variables in [Vercel][Vercel-url]. 
 
-### Prerequisites
+Let us know what features you'd like to see for [future upgrades](#contributing).
 
-This is an example of how to list things you need to use the software and how to install them.
+## Installation
 
-- yarn
-- Node.js v18+
+1. Fork (i.e., copy) the repo on github to your own account.
 
-### Installation & setup
+2. Deploy your personal [Signature Drop NFT contract on Thirdweb][1]. Make sure you've updated the claim conditions to allow people to mint and uploaded your NFTs. 
 
-1. Fork and clone the repo
-   ```sh
-   git clone https://github.com/icebreakerlabs/protobreaker.git
-   ```
-2. Install npm packages
-   ```sh
-   yarn
-   ```
-3. Rename `.env.template` to `.env` and set required environment variables:
+[1]: <https://portal.thirdweb.com/pre-built-contracts/signature-drop> "Thirdweb Signature Drop Contract"
 
+
+3. [Optional step] Set up your typeform for contact info. This'll allow minters to enter their contact info after minting your NFT. Make sure you've configured hidden fields of @address and @owner from the "Advanced" settings in the share tab. Get your typeform ID by looking at the parameter xxxxx in the url on that admin page at https://admin.typeform.com/form/xxxxx/share.
+
+4. Deploy the repo using Vercel.
+  - Set the drop address and active chains in the environment variables in vercel
+  
    `NEXT_PUBLIC_DROP_ADDRESS="YOUR DROP ADDRESS"`
 
    `NEXT_PUBLIC_ACTIVE_CHAIN="YOUR SELECTED CHAIN"`
+   
+   See thirdweb for the list of potential chains. Note that these are case sensitive.
 
-   A valid, case-sensitive chain name must be used here. Valid options are:
-   - `Mainnet`
-   - `Goerli`
-   - `Polygon`
-   - `Mumbai`
-   - `Localhost`
-   - `Hardhat`
-   - `Fantom`
-   - `FantomTestnet`
-   - `Avalanche`
-   - `AvalancheFujiTestnet`
-   - `Optimism`
-   - `OptimismGoerli`
-   - `Arbitrum`
-   - `ArbitrumGoerli`
-   - `BinanceSmartChainMainnet`
-   - `BinanceSmartChainTestnet`
-4. Start the development server
-   ```sh
-   yarn dev
-   ```
-5. Create your own versions of the NFT smart contract and typeform, then update the app to point to the new addresses
-
-   - Go to [thirdweb][thirdweb-url] and deploy your own contract on testnet and mainnet, and upload all the NFTs and claim conditions. Update the contract addresses in utils/env.ts. Please note that the chains are currently hardcoded for goerli and mainnet, so if you're deploying on other chains, you'll need to update those settings in env.ts. Also components/NftCard.tsx hardcodes the opensea links to ethereum so you may need to update that parameter if your main contract is not on ethereum mainnet.
-   - Ensure that you have allowlisted the wallet you plan on minting from on thirdweb in its claim conditions.
-   - Update the typeform ID to use your own typeform. Make sure you've configured hidden fields of @address and @owner from the "Advanced" settings in the share tab. You can get the ID by simply looking at the parameter xxxxx in the url on that admin page at https://admin.typeform.com/form/xxxxx/share.
+5. Happy minting!
 
 ## Usage
 
-Anyone who's interested in easily deploying their own NFT contract and minting app, which others can view.
+Anyone who's interested in easily deploying their own NFT contract and minting app, particularly for in-person events.
 
 ## Roadmap
 
-None. We released this app for fun at ETHDenver 2023. However, we at some point do intend to demonstrate how this looks when deployed on other chains and using a relayer. This app was originally forked from the thirdweb signaturedrop contract, so it also has an api to support signature-based minting, though this feature is not currently enabled in the protobreaker app.
+None.
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you have a suggestion that would make this better, fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
 Don't forget to give the project a star! Thanks again!
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feat/your-feature`)
-3. Commit your changes (`git commit -m 'feat: Add some feature'`)
-4. Push to the branch (`git push origin feat/your-feature`)
-5. Open a pull request
 
 ## License
 
@@ -111,7 +93,7 @@ You can reach us at opensource at icebreaker.xyz.
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [ThirdWeb-logo]: https://img.shields.io/badge/-thirdweb-critical?style=for-the-badge
-[thirdweb-url]: https://thirdweb.com/
+[Thirdweb-url]: https://thirdweb.com/
 [Vercel-logo]: https://img.shields.io/badge/-vercel-black?style=for-the-badge
 [Vercel-url]: https://vercel.com/
 [Typeform-logo]: https://img.shields.io/badge/-typeform-lightgrey?style=for-the-badge
