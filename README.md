@@ -61,6 +61,12 @@ Let us know what features you'd like to see for [future upgrades](#contributing)
     
     `NEXT_PUBLIC_ACTIVE_CHAIN="YOUR SELECTED CHAIN"`
   - See [Thirdweb][Thirdweb-url] for the list of potential chains. Note that these are case sensitive.
+  - Consider creating a QR code from a free generator like [Vistaprint](https://www.vistaprint.com/qr-code-generator/builder) and printing it for easier distribution at your event. 
+  ![image](https://user-images.githubusercontent.com/71476076/234699827-42677403-2b7d-447a-8da4-de7e9fafd4fd.png)
+
+  
+  
+
 
 5. Happy minting!
 
