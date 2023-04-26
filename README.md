@@ -34,9 +34,12 @@ Created by [Icebreaker](https://icebreaker.xyz).
 [![Vercel][Vercel-logo]][Vercel-url]
 [![Typeform][Typeform-logo]][Typeform-url]
 
+----
+
+
 ## Overview
 
-Simply fork this repository, deploy your contract using thirdweb, and deploy the repo with the correct environment variables in [Vercel][Vercel-url]. 
+Simply fork this repository, deploy your contract using [Thirdweb][Thirdweb-url], and deploy the repo with the correct environment variables in [Vercel][Vercel-url]. 
 
 Let us know what features you'd like to see for [future upgrades](#contributing).
 
@@ -49,18 +52,20 @@ Let us know what features you'd like to see for [future upgrades](#contributing)
 [1]: <https://portal.thirdweb.com/pre-built-contracts/signature-drop> "Thirdweb Signature Drop Contract"
 
 
-3. [Optional step] Set up your typeform for contact info. This'll allow minters to enter their contact info after minting your NFT. Make sure you've configured hidden fields of @address and @owner from the "Advanced" settings in the share tab. Get your typeform ID by looking at the parameter xxxxx in the url on that admin page at https://admin.typeform.com/form/xxxxx/share.
+3. [**Optional step**] Set up your [Typeform][Typeform-url] for contact info. This'll allow minters to enter their contact info after minting your NFT. Make sure you've configured hidden fields of `@address` and `@owner` from the "Advanced" settings in the share tab. Get your typeform ID by looking at the parameter `xxxxx` in the url on that admin page at `https://admin.typeform.com/form/xxxxx/share`.
 
-4. Deploy the repo using Vercel.
-  - Set the drop address and active chains in the environment variables in vercel
+4. Deploy the repo using [Vercel][Vercel-url].
+  - Set the drop address and active chains in the environment variables in vercel:
   
-   `NEXT_PUBLIC_DROP_ADDRESS="YOUR DROP ADDRESS"`
-
-   `NEXT_PUBLIC_ACTIVE_CHAIN="YOUR SELECTED CHAIN"`
-   
-   See thirdweb for the list of potential chains. Note that these are case sensitive.
+    `NEXT_PUBLIC_DROP_ADDRESS="YOUR DROP ADDRESS"`
+    
+    `NEXT_PUBLIC_ACTIVE_CHAIN="YOUR SELECTED CHAIN"`
+  - See [Thirdweb][Thirdweb-url] for the list of potential chains. Note that these are case sensitive.
 
 5. Happy minting!
+
+----
+
 
 ## Usage
 
