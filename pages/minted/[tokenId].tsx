@@ -1,8 +1,10 @@
 import { memo } from 'react';
 import { Stack, Button } from '@chakra-ui/react';
+import { usePrivy } from '@privy-io/react-auth';
+import { useContract, useNFT } from '@thirdweb-dev/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { useContract, useNFT, useAddress } from '@thirdweb-dev/react';
+
 import { dropAddress, typeformId } from '../../utils/env';
 import NftCard from '../../components/NftCard';
 import TypeformButton from '../../components/TypeformButton';
@@ -12,7 +14,8 @@ export default memo(function Minted() {
   const { tokenId } = router.query;
   const { contract } = useContract(dropAddress);
   const { data: nft } = useNFT(contract, tokenId as string);
-  const address = useAddress();
+  const { user } = usePrivy();
+  const address = user?.wallet?.address;
 
   return (
     <Stack

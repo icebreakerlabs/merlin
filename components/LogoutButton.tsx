@@ -1,20 +1,19 @@
 import { memo } from 'react';
 import { Button, type ButtonProps } from '@chakra-ui/react';
-import { useConnect, useDisconnect } from '@thirdweb-dev/react';
+import { usePrivy } from '@privy-io/react-auth';
 
 type LogoutButtonProps = ButtonProps;
 
 export default memo(function LogoutButton(props: LogoutButtonProps) {
-  const [{ data: connection }] = useConnect();
-  const disconnect = useDisconnect();
+  const { authenticated, logout } = usePrivy();
 
-  if (!connection.connected) {
+  if (!authenticated) {
     return null;
   }
 
   return (
-    <Button variant="outline" color="gray.400" {...props} onClick={disconnect}>
-      Disconnect
+    <Button variant="outline" color="gray.400" {...props} onClick={logout}>
+      Log out
     </Button>
   );
 });

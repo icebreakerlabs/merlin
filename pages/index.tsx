@@ -1,11 +1,6 @@
 import { type ChangeEvent, memo, useCallback, useMemo, useState } from 'react';
-import {
-  useContract,
-  Web3Button,
-  useNFTs,
-  useAddress,
-  useClaimedNFTSupply,
-} from '@thirdweb-dev/react';
+import { usePrivy } from '@privy-io/react-auth';
+import { useContract, useNFTs, useClaimedNFTSupply } from '@thirdweb-dev/react';
 import {
   Stack,
   InputGroup,
@@ -21,6 +16,7 @@ import {
   Switch,
   FormControl,
   FormLabel,
+  Button,
 } from '@chakra-ui/react';
 import { AiOutlineQrcode } from 'react-icons/ai';
 import { useRouter } from 'next/router';
@@ -41,11 +37,11 @@ export default memo(function Home() {
   const [destinationAddress, setDestinationAddress] = useState('');
   const [name, setName] = useState('');
   const [telegram, setTelegram] = useState('');
+  const [isMinting, setIsMinting] = useState(false);
   const [isAdvancedMode, setIsAdvancedMode] = useState(false);
   const [hasError, setHasError] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const address = useAddress();
+  const { login, authenticated, user } = usePrivy();
   const { contract: signatureDrop } = useContract(
     dropAddress,
     'signature-drop'
@@ -57,6 +53,7 @@ export default memo(function Home() {
     count: 3,
   });
   const nfts = useMemo(() => [...data].reverse(), [data]);
+  const address = user?.wallet?.address;
 
   const handleQrRead = useCallback(
     (text: string) => {
@@ -88,6 +85,7 @@ export default memo(function Home() {
 
   const handleButtonPress = useCallback(async () => {
     setHasError(false);
+    setIsMinting(true);
 
     try {
       const targetAddress = isAdvancedMode
@@ -100,7 +98,9 @@ export default memo(function Home() {
       }
 
       if (!transactions) {
-        return setHasError(true);
+        setIsMinting(false);
+        setHasError(true);
+        return;
       }
 
       const [transaction] = transactions;
@@ -108,6 +108,7 @@ export default memo(function Home() {
       push(`/minted/${transaction.id}`);
     } catch (err) {
       console.error(err);
+      setIsMinting(false);
       setHasError(true);
     }
   }, [
@@ -258,15 +259,20 @@ export default memo(function Home() {
           </Stack>
 
           <Stack maxWidth="100%">
-            <Web3Button
-              colorMode="dark"
-              accentColor="white"
-              contractAddress={dropAddress}
-              action={handleButtonPress}
-              isDisabled={!(isAdvancedMode ? destinationAddress : address)}
-            >
-              Mint
-            </Web3Button>
+            {authenticated ? (
+              <Button
+                isLoading={isMinting}
+                color="gray.400"
+                onClick={handleButtonPress}
+                disabled={!(isAdvancedMode ? destinationAddress : address)}
+              >
+                Mint
+              </Button>
+            ) : (
+              <Button color="gray.400" onClick={login}>
+                Connect Wallet
+              </Button>
+            )}
 
             <LogoutButton />
           </Stack>

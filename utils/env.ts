@@ -1,5 +1,7 @@
 import { ChainId } from '@thirdweb-dev/react';
 
+export const privyAppId = process.env.NEXT_PUBLIC_PRIVY_APP_ID!;
+
 export const dropAddress = process.env.NEXT_PUBLIC_DROP_ADDRESS!;
 
 export const chainId = process.env

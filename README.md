@@ -7,6 +7,7 @@
 </div>
 
 ## Contents
+
 1. [About](#about)
 2. [Overview](#overview)
 3. [Installation](#installation)
@@ -16,14 +17,13 @@
 7. [License](#license)
 8. [Contact](#contact)
 
-
 ## About
 
-Deploy your own NFT drop and gasless minting website in an easy-to-use, mobile friendly format without writing a single line of code. 
+Deploy your own NFT drop and gasless minting website in an easy-to-use, mobile friendly format without writing a single line of code.
 
-Requires a [Vercel][Vercel-url] account and some basic setup with [Thirdweb][Thirdweb-url] and [Typeform][Typeform-url].
+Requires a [Vercel][Vercel-url] account, a [Privy account][Privy-url], and some basic setup with [Thirdweb][Thirdweb-url] and [Typeform][Typeform-url].
 
-Created by [Icebreaker](https://icebreaker.xyz). 
+Created by [Icebreaker](https://icebreaker.xyz).
 
 ### Built With
 
@@ -34,44 +34,41 @@ Created by [Icebreaker](https://icebreaker.xyz).
 [![Vercel][Vercel-logo]][Vercel-url]
 [![Typeform][Typeform-logo]][Typeform-url]
 
-----
-
+---
 
 ## Overview
 
-Simply fork this repository, deploy your contract using [Thirdweb][Thirdweb-url], and deploy the repo with the correct environment variables in [Vercel][Vercel-url]. 
+Simply fork this repository, deploy your contract using [Thirdweb][Thirdweb-url], and deploy the repo with the correct environment variables in [Vercel][Vercel-url].
 
 Let us know what features you'd like to see for [future upgrades](#contributing).
 
 ## Installation
 
-1. Fork (i.e., copy) the repo on github to your own account.
+1. Fork (i.e., copy) the repo on GitHub to your own account.
 
-2. Deploy your personal [Signature Drop NFT contract on Thirdweb][1]. Make sure you've updated the claim conditions to allow people to mint and uploaded your NFTs. 
+2. Deploy your personal [Signature Drop NFT contract on Thirdweb][1]. Make sure you've updated the claim conditions to allow people to mint and upload your NFTs.
 
-[1]: <https://portal.thirdweb.com/pre-built-contracts/signature-drop> "Thirdweb Signature Drop Contract"
-
+[1]: https://portal.thirdweb.com/pre-built-contracts/signature-drop 'Thirdweb Signature Drop Contract'
 
 3. [**Optional step**] Set up your [Typeform][Typeform-url] for contact info. This'll allow minters to enter their contact info after minting your NFT. Make sure you've configured hidden fields of `@address` and `@owner` from the "Advanced" settings in the share tab. Get your typeform ID by looking at the parameter `xxxxx` in the url on that admin page at `https://admin.typeform.com/form/xxxxx/share`.
 
 4. Deploy the repo using [Vercel][Vercel-url].
-  - Set the drop address and active chains in the environment variables in vercel:
-  
-    `NEXT_PUBLIC_DROP_ADDRESS="YOUR DROP ADDRESS"`
-    
-    `NEXT_PUBLIC_ACTIVE_CHAIN="YOUR SELECTED CHAIN"`
-  - See [Thirdweb][Thirdweb-url] for the list of potential chains. Note that these are case sensitive.
-  - Consider creating a QR code from a free generator like [Vistaprint](https://www.vistaprint.com/qr-code-generator/builder) and printing it for easier distribution at your event. 
+
+- Set the Privy App ID, drop address, and active chains in the environment variables in Vercel:
+
+  `NEXT_PUBLIC_PRIVY_APP_ID="YOUR PRIVY APP ID"`
+
+  `NEXT_PUBLIC_DROP_ADDRESS="YOUR DROP ADDRESS"`
+
+  `NEXT_PUBLIC_ACTIVE_CHAIN="YOUR SELECTED CHAIN"`
+
+- See [Thirdweb][Thirdweb-url] for the list of potential chains. Note that these are case sensitive.
+- Consider creating a QR code from a free generator like [Vistaprint](https://www.vistaprint.com/qr-code-generator/builder) and printing it for easier distribution at your event.
   ![image](https://user-images.githubusercontent.com/71476076/234699827-42677403-2b7d-447a-8da4-de7e9fafd4fd.png)
-
-  
-  
-
 
 5. Happy minting!
 
-----
-
+---
 
 ## Usage
 
@@ -103,6 +100,7 @@ You can reach us at opensource at icebreaker.xyz.
 [next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
+[privy-url]: https://privy.io/
 [ThirdWeb-logo]: https://img.shields.io/badge/-thirdweb-critical?style=for-the-badge
 [Thirdweb-url]: https://thirdweb.com/
 [Vercel-logo]: https://img.shields.io/badge/-vercel-black?style=for-the-badge

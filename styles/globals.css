@@ -48,3 +48,11 @@ html, #__next {
 *::after {
   box-sizing: border-box;
 }
+
+/**
+ * Manually hack the inner logo padding
+ * 👋 @ Privy
+ */
+#privy-dialog > div > div > :nth-child(2) {
+  padding: 30px 10px;
+}
