@@ -145,7 +145,7 @@ export default memo(function Home() {
         <Stack justify="flex-start" align="center" spacing="32px">
           <Stack width="116px" height="116px">
             <LinkBox>
-              <NextLink passHref href={`https://icebreaker.xyz`}>
+              <NextLink passHref href="https://icebreaker.xyz">
                 <LinkOverlay>
                   <Image src="/logo@2x.png" alt="Icebreaker" />
                 </LinkOverlay>
@@ -197,32 +197,36 @@ export default memo(function Home() {
             )}
             {isAdvancedMode && (
               <>
-                <FormControl>
-                  <FormLabel color={'gray.400'}>Name</FormLabel>
-                  <Input
-                    color="gray.400"
-                    variant="outline"
-                    placeholder="Name"
-                    size="lg"
-                    value={name}
-                    onChange={handleNameChange}
-                  />
-                </FormControl>
+                {zapierCatchUrl && (
+                  <>
+                    <FormControl>
+                      <FormLabel color="gray.400">Name</FormLabel>
+                      <Input
+                        color="gray.400"
+                        variant="outline"
+                        placeholder="Name"
+                        size="lg"
+                        value={name}
+                        onChange={handleNameChange}
+                      />
+                    </FormControl>
+
+                    <FormControl>
+                      <FormLabel color="gray.400">Telegram</FormLabel>
+                      <Input
+                        color="gray.400"
+                        placeholder="Telegram"
+                        variant="outline"
+                        size="lg"
+                        value={telegram}
+                        onChange={handleTelegramChange}
+                      />
+                    </FormControl>
+                  </>
+                )}
 
                 <FormControl>
-                  <FormLabel color={'gray.400'}>Telegram</FormLabel>
-                  <Input
-                    color="gray.400"
-                    placeholder="Telegram"
-                    variant="outline"
-                    size="lg"
-                    value={telegram}
-                    onChange={handleTelegramChange}
-                  />
-                </FormControl>
-
-                <FormControl>
-                  <FormLabel color={'gray.400'}>ENS or Address</FormLabel>
+                  <FormLabel color="gray.400">ENS or Address</FormLabel>
                   <InputGroup size="lg" alignSelf="stretch">
                     <Input
                       required
