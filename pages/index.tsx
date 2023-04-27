@@ -195,7 +195,7 @@ export default memo(function Home() {
                 Something went wrong when attempting to claim
               </ErrorAlert>
             )}
-            {isAdvancedMode && (
+            {isAdvancedMode && zapierCatchUrl && (
               <>
                 <FormControl>
                   <FormLabel color={'gray.400'}>Name</FormLabel>
@@ -267,7 +267,7 @@ export default memo(function Home() {
             <LogoutButton />
           </Stack>
 
-          {isAddressAllowed(address) && (
+          {isAddressAllowed(address) && zapierCatchUrl && (
             <Stack marginTop={12}>
               <Switch
                 isChecked={isAdvancedMode}
